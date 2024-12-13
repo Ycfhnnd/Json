@@ -1,5 +1,6 @@
 #include "json.h"
 #include <sstream>
+#include "parser.h"
 
 using namespace json;
 
@@ -332,6 +333,11 @@ void Json::remove(const std::string& key) {
     }
 }
 
+void Json::parse(const std::string& str) {
+    Parser p;
+    p.load(str);
+    *this = p.parse()
+}
 Json:: ~Json() {
 
 }
